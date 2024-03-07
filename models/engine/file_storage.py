@@ -24,6 +24,7 @@ class FileStorage:
     class_dict = {"BaseModel": BaseModel, "User": User, "Place": Place,
                   "Amenity": Amenity, "City": City, "Review": Review,
                   "State": State}
+
     def all(self):
         '''returns the dictionary __objects'''
         return self.__objects
@@ -50,6 +51,6 @@ class FileStorage:
                 des = json.load(f)
             for key, val in des.items():
                 obj = self.class_dict[val['__class__']](**val)
-            self.__objects = obj
+                self.__objects = obj
         except(FileNotFoundError, JSONDecodeError):
             pass
