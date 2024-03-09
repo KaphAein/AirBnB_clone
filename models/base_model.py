@@ -7,7 +7,7 @@ import models
 
 
 class BaseModel():
-    '''BaseModel Class for all classes'''''
+    '''BaseModel Class for all classes'''
 
     def __init__(self, *args, **kwargs):
         '''serialization and deserialization of class'''
