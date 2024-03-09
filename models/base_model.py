@@ -12,14 +12,14 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         '''serialization and deserialization of class'''
         if kwargs:
-            for key, value in kwargs.items:
-                if key == 'created_at':
+            for key, value in kwargs.items():
+                if 'created_at' == key:
                     self.created_at = datetime.strptime(
                         kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
-                elif key == 'updated_at':
+                elif 'updated_at'== key:
                     self.updated_at = datetime.strptime(
                         kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
-                elif key == '__class__':
+                elif '__class__' == key:
                     pass
                 else:
                     setattr(self, key, value)
@@ -28,7 +28,11 @@ class BaseModel():
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
             models.storage.new(self)
-
+            
+    def __repr__(self):
+        '''returns string repr'''
+        return (self.__str__())
+    
     def __str__(self):
         '''print: [<class name>] (<self.id>) <self.__dict__>'''
         return "[{}] ({}) {}".format(
