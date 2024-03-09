@@ -28,7 +28,7 @@ class BaseModel():
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
             models.storage.new(self)
-            
+
     def __str__(self):
         '''print: [<class name>] (<self.id>) <self.__dict__>'''
         return "[{}] ({}) {}".format(
