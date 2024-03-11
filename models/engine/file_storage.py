@@ -52,5 +52,5 @@ class FileStorage:
             for key, val in des.items():
                 obj = self.class_dict[val['__class__']](**val)
                 self.__objects = obj
-        except(FileNotFoundError, JSONDecodeError):
+        except (FileNotFoundError, JSONDecodeError):
             pass

@@ -16,7 +16,7 @@ class BaseModel():
                 if 'created_at' == key:
                     self.created_at = datetime.strptime(
                         kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
-                elif 'updated_at'== key:
+                elif 'updated_at' == key:
                     self.updated_at = datetime.strptime(
                         kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
                 elif '__class__' == key:
@@ -28,11 +28,11 @@ class BaseModel():
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
             models.storage.new(self)
-            
+
     def __repr__(self):
         '''returns string repr'''
         return (self.__str__())
-    
+
     def __str__(self):
         '''print: [<class name>] (<self.id>) <self.__dict__>'''
         return "[{}] ({}) {}".format(

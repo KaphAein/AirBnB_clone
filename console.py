@@ -31,6 +31,7 @@ def parse(arg):
         retl.append(curly_braces.group())
         return retl
 
+
 class HBNBCommand(cmd.Cmd):
     '''Defines the HolbertonBnB command interpreter.'''
 
@@ -80,7 +81,8 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, line):
-        '''Create a new class instance with given keys/values and print its id.'''
+        '''Create a new class instance
+        with given keys/values and print its id.'''
         try:
             if not line:
                 raise SyntaxError()
@@ -112,7 +114,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, arg):
-        '''Display the string representation of a class instance of a given id.'''
+        '''Display the string representation
+        of a class instance of a given id.'''
         argl = parse(arg)
         objdict = storage.all()
         if len(argl) == 0:
