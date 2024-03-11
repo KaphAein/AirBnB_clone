@@ -19,9 +19,7 @@ class BaseModel():
                 elif 'updated_at' == key:
                     self.updated_at = datetime.strptime(
                         kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
-                elif '__class__' == key:
-                    pass
-                else:
+                elif '__class__' != key:
                     setattr(self, key, value)
         else:
             self.id = str(uuid4())
